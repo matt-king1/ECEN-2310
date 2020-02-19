@@ -1,6 +1,0 @@
-plot1 = figure('Name','Problem A Plot 1');
-theta = linspace(0,2*pi,100);
-r = sin(2.*theta);
-polarplot(theta, r);
-plot1
-
