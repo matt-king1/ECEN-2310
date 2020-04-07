@@ -1,0 +1,31 @@
+A = importdata('mariana_depth.csv')
+lon = importdata('mariana_longitude.csv')
+lat = importdata('mariana_latitude.csv')
+
+[Uo,So,Vo] = svd(A);
+
+numsamples = 10;
+
+V = Vo(:,1:numsamples);
+S = So(1:numsamples,1:numsamples);
+U = zeros(1320,numsamples);
+
+for i = 1:numsamples
+    U(:,i) = (A * V(:,i)) / S(i,i);
+end
+
+approx = U * S * V';
+
+
+subplot(2,2,1)
+title('n=10')
+s = surf(lat, lon, approx)
+view(2)
+s.EdgeColor = 'none'
+xlabel("Latitude ({\circ}north)")
+ylabel("Longitude ({\circ}east)")
+zlabel("Depth below sea level (m)")
+ylim([140 150])
+xlim([10 20])
+
+
