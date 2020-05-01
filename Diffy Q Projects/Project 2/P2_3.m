@@ -48,4 +48,4 @@ zlabel("Depth below sea level (m)")
 ylim([140 150])
 xlim([10 20])
 
-sgtitle("Visualiations of Approximations of A using n Columns")
+sgtitle("Visualizations of Approximations of A using n Columns during SVD")
